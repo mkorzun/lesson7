@@ -1,0 +1,21 @@
+---
+version: '3.9'
+services:
+  tomcat:
+    image: tomcat:jre8-alpine
+    ports:
+      - "8080:8080"
+    volumes:
+      - type: volume
+        source: data
+        target: /usr/local/tomcat/webapps
+    container_name: tomcat
+  maven:
+    build: maven
+    volumes:
+      - type: volume
+        source: data
+        target: /data
+    container_name: maven
+volumes:
+  data:
