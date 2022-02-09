@@ -6,16 +6,14 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - type: volume
-        source: data
-        target: /usr/local/tomcat/webapps
+      - data:/usr/local/tomcat/webapps/test
     container_name: tomcat
+    depends_on:
+      - maven
   maven:
     build: maven
     volumes:
-      - type: volume
-        source: data
-        target: /data
+      - data:/data
     container_name: maven
 volumes:
   data:
