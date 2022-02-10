@@ -2,11 +2,11 @@
 version: '3.9'
 services:
   tomcat:
-    image: tomcat:jre8-alpine
+    build: tomcat
     ports:
       - "8080:8080"
     volumes:
-      - data:/usr/local/tomcat/webapps/test
+      - data:/opt/tomcat/webapps
     container_name: tomcat
     depends_on:
       - maven
@@ -16,4 +16,4 @@ services:
       - data:/data
     container_name: maven
 volumes:
-  data:
+  data3:
