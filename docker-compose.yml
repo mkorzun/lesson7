@@ -16,4 +16,4 @@ services:
       - data:/data
     container_name: maven
 volumes:
-  data3:
+  data:
